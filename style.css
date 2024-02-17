@@ -1,3 +1,18 @@
 html{
   background-color: #B0B0D3
 }
+
+#submitButton {
+  border: 1px solid black;
+  background-color: #FFCAD4;
+  color: black;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 10px 10px 5px #F7AF9D;
+}
+
+#submitButton:hover{
+  box-shadow: 13px 13px 5px #F7AF9D;
+}
