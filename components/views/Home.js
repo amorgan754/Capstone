@@ -1,14 +1,15 @@
 import html from "html-literal";
+import pig from "../../assets/pig.png";
 
 export default () => html`
   <section id="home">
     <div class="home">
-      <h1>This is going to end up being the home page at some point</h1>
-      <p>Other cool things that are going to be added are here too</p>
+      <h1>Welcome to Household Hub</h1>
       <p>
-        I really think that the submit button is fun and was actually quite easy
-        to do once I figured out how to do it
+        This tracker is to help a wide range of people keep track of different
+        household things, like finances and important dates.
       </p>
     </div>
+    <img class="pig" src="${pig}" alt="surprise!" />
   </section>
 `;

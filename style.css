@@ -2,7 +2,7 @@ html{
   background-color: #B0B0D3
 }
 
-#submitButton {
+#submitButton{
   border: 1px solid black;
   background-color: #FFCAD4;
   color: black;
@@ -16,3 +16,60 @@ html{
 #submitButton:hover{
   box-shadow: 13px 13px 5px #F7AF9D;
 }
+
+a{
+  color: black;
+  text-decoration: none;
+}
+
+.project > a:hover{
+  color: #F7AF9D;
+}
+
+li{
+  list-style: none;
+}
+
+h1{
+  color: #FFCAD4;
+}
+
+nav {
+  display: flex;
+}
+
+#weather{
+  float: left;
+  justify-content: flex-start;
+  font-size: large;
+}
+
+#nav > ul{
+  display: flex;
+  float: right;
+  justify-content: flex-end;
+}
+
+#nav > ul > li{
+  background-color: #FFCAD4;
+  margin: 2px;
+  border-radius: 25%;
+  padding: 3px;
+}
+
+#nav > ul > li:hover{
+  box-shadow: 5px 5px 5px #F7AF9D;
+}
+
+.pig{
+  width: 5em;
+  height: 5em;
+  opacity: 0;
+  transition: ease-out 1s;
+}
+
+.pig:hover{
+  opacity: .5;
+  transition: ease-in 1s;
+}
+
