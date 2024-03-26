@@ -1,4 +1,5 @@
 export default {
   header: "Finance Tracker",
-  view: "Finances"
+  view: "Finances",
+  finances: []
 };

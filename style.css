@@ -73,3 +73,37 @@ nav {
   transition: ease-in 1s;
 }
 
+#financeTable{
+  height: auto;
+  margin: auto;
+  width: 90%;
+}
+
+#financeTable > th, td {
+  width: 25%;
+}
+
+#financeTable > th {
+  text-align: left;
+}
+
+#financeTable tbody {
+  width: 100%;
+}
+
+#finances{
+  margin-bottom: 1em;
+}
+
+#name{
+  margin-bottom: 1em;
+}
+
+#costs{
+  margin-bottom: 1em;
+}
+
+#runningTotal{
+  margin-bottom: 1em;
+}
+
