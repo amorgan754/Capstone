@@ -25,6 +25,7 @@
     "express": "^4.18.3",
     "html-literal": "^1.1.0",
     "lodash": "^4.17.21",
+    "mongoose": "^6.12.7",
     "navigo": "^8.11.1",
     "parcel": "^2.11.0"
   }

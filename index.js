@@ -15,6 +15,44 @@ function render(state = store.Home) {
       ${Footer()}
     `;
   router.updatePageLinks();
+  afterRender(state);
+}
+
+function afterRender(state) {
+  if (state.view === "Finances") {
+    document
+      .getElementById("financeSubmitButton")
+      .addEventListener("click", event => {
+        event.preventDefault();
+
+        const inputList = event.target.elements;
+
+        const finance = [];
+
+        for (let input of inputList.finance) {
+          if (input.checked) {
+            finance.push(input.value);
+          }
+        }
+
+        const requestData = {
+          financeName: inputList.financeName.value,
+          cost: inputList.cost.value,
+          runningTotal: inputList.runningTotal.value,
+          type: inputList.type.value
+        };
+
+        axios
+          .post(`${process.env.FINANCE_API_URL}/finances`, requestData)
+          .then(response => {
+            store.Finances.finances.push(response.data);
+            router.navigate("/Finances");
+          })
+          .catch(error => {
+            console.log("it puked", error);
+          });
+      });
+  }
 }
 
 router.hooks({
