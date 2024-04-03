@@ -6,22 +6,12 @@ const calendarSchema = new mongoose.Schema({
     required: true,
     validate: /^[A-Za-z0-9 ]*$/
   },
-  startDate: {
+  start: {
     type: String,
     required: true,
     validate: /^[A-Za-z0-9-: ]*$/
   },
-  startTime: {
-    type: String,
-    required: true,
-    validate: /^[A-Za-z0-9-: ]*$/
-  },
-  endTime: {
-    type: String,
-    required: true,
-    validate: /^[A-Za-z0-9-: ]*$/
-  },
-  endDate: {
+  end: {
     type: String,
     required: true,
     validate: /^[A-Za-z0-9-: ]*$/
