@@ -7,22 +7,21 @@ const financeSchema = new mongoose.Schema({
     validate: /^[A-Za-z0-9 ]*$/
   },
   cost: {
-    type: Number,
+    type: String,
     required: true,
-    validate: /^[0-9 ]*$/
+    validate: /^[0-9.-]*$/
   },
   runningTotal: {
-    type: Number,
-    validate: /^[0-9 ]*$/
+    type: String,
+    validate: /^[0-9.-]*$/
   },
   type: {
     type: String,
     required: true,
     enum: ["debit", "income"]
-  },
-  toppings: [String]
+  }
 });
 
-const Finance = mongoose.model("Pizza", financeSchema);
+const Finance = mongoose.model("Finances", financeSchema);
 
 export default Finance;

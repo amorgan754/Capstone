@@ -20,9 +20,14 @@
     "prettier": "1.19.1"
   },
   "dependencies": {
+    "@fullcalendar/core": "^6.1.11",
+    "@fullcalendar/daygrid": "^6.1.11",
+    "@fullcalendar/list": "^6.1.11",
+    "@fullcalendar/timegrid": "^6.1.11",
     "axios": "^1.6.7",
     "dotenv": "^16.4.5",
     "express": "^4.18.3",
+    "fullcalendar": "^6.1.11",
     "html-literal": "^1.1.0",
     "lodash": "^4.17.21",
     "mongoose": "^6.12.7",
