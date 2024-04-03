@@ -6,7 +6,7 @@ export default state => html`
       <p>
         Welcome to finances! This is to help you keep track of current finances
       </p>
-      <form id = "finances" method = "POST" action = "">
+      <form id = "finance" method = "POST" action = "">
         <div id = "name">
           <label for = "financeName">Finance Name</label>
           <input type = "text" name = "financeName" id = "financeName" placeholder = "Enter finance name" required />
@@ -21,17 +21,18 @@ export default state => html`
           </select>
         </div>
         <div id = "runningTotal">
-          <label for = "total">Total</label>
-          <input type = "number" name = "total" id = "total" placeholder = "Enter running total" step = "0.01" required />
+          <label for = "runningTotal">Total</label>
+          <input type = "number" name = "runningTotal" id = "runningTotal" placeholder = "Enter running total" step = "0.01" required />
         </div>
         <div class="submit">
-          <span id="financeSubmitButton">submit</span>
+          <input type = "submit" id="financeSubmitButton" value = "submit"/>
         </div>
       </form>
       <table id = "financeTable">
         <tr>
           <th>Finance Name</th>
           <th>Cost</th>
+          <th>Type</th>
           <th>Running Total</th>
         </tr>
       ${state.finances.map(finances => {
@@ -44,7 +45,10 @@ export default state => html`
               ${finances.cost}
             </td>
             <td>
-              ${finances.total}
+              ${finances.type}
+            </td>
+            <td>
+              ${finances.runningTotal}
             </td>
           </tr>
         `;

@@ -1,4 +1,5 @@
 export default {
   header: "Calendar",
-  view: "Calendar"
+  view: "Calendar",
+  calendar: []
 };

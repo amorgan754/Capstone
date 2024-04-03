@@ -3,6 +3,7 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import finances from "./routers/finances.js";
+import calendar from "./routers/calendar.js";
 
 // Load environment variables from .env file
 dotenv.config();
@@ -61,5 +62,6 @@ app.get("/status", (request, response) => {
 });
 
 app.use("/finances", finances);
+app.use("/calendar", calendar);
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
