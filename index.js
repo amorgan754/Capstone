@@ -86,10 +86,8 @@ function afterRender(state) {
 
       const requestData = {
         title: inputList.title.value,
-        startDate: inputList.startDate.value,
-        startTime: inputList.startTime.value,
-        endDate: inputList.endDate.value,
-        endTime: inputList.endTime.value
+        start: inputList.start.value,
+        end: inputList.end.value
       };
 
       axios
@@ -146,7 +144,7 @@ router.hooks({
                 title: event.title || event.customer,
                 start: new Date(event.start),
                 end: new Date(event.end),
-                allDay: event.allDay || false
+                allDay: false
               };
             });
             console.log(response);

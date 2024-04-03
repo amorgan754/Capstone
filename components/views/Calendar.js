@@ -24,14 +24,12 @@ export default () => html`
           />
         </div>
         <div>
-          <label for="startDate">Start Date and Time</label>
-          <input id="startDate" name="startDate" type="date" />
-          <input id="startTime" name="startTime" type="time" />
+          <label for="start">Start Date and Time</label>
+          <input id="start" name="start" type="datetime-local" />
         </div>
         <div>
-          <label for="endDate">End Date and Time</label>
-          <input id="endDate" name="endDate" type="date" />
-          <input id="endTime" name="endTime" type="time" />
+          <label for="end">End Date and Time</label>
+          <input id="end" name="end" type="datetime-local" />
         </div>
         <input type="submit" name="calendarSubmit" value="schedule" />
       </form>
