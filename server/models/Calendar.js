@@ -8,13 +8,17 @@ const calendarSchema = new mongoose.Schema({
   },
   start: {
     type: String,
-    required: true,
+    required: false,
     validate: /^[A-Za-z0-9-: ]*$/
   },
   end: {
     type: String,
-    required: true,
+    required: false,
     validate: /^[A-Za-z0-9-: ]*$/
+  },
+  allDay: {
+    type: Boolean,
+    required: false
   }
 });
 
