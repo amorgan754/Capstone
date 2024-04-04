@@ -7,6 +7,7 @@ import { Calendar } from "@fullcalendar/core";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import listPlugin from "@fullcalendar/list";
+import interactionPlugin from "@fullcalendar/interaction";
 
 // router
 const router = new Navigo("/");
@@ -103,11 +104,33 @@ function afterRender(state) {
     // Need to add calendar here
     let calendarEl = document.getElementById("calendar");
     let calendar = new Calendar(calendarEl, {
-      plugins: [dayGridPlugin],
+      plugins: [dayGridPlugin, timeGridPlugin, interactionPlugin],
       initialView: "dayGridMonth",
+      headerToolbar: {
+        left: "prev,next today",
+        center: "title",
+        right: "dayGridMonth,timeGridWeek,timeGridDay"
+      },
       selectable: true,
       editable: true,
-      events: state.calendar || []
+      droppable: true,
+      events: state.calendar || [],
+      dayMaxEvents: 3,
+      height: "auto",
+      eventTextColor: "black",
+      eventBackgroundColor: "#FFCAD4",
+      eventClick: function handleEventClick(info) {
+        alert(
+          "Event: " +
+            info.event.title +
+            "\n" +
+            "Start Time: " +
+            info.event.start +
+            "\n" +
+            "End Time: " +
+            info.event.end
+        );
+      }
     });
     calendar.render();
   }
@@ -137,20 +160,35 @@ router.hooks({
       case "Calendar":
         // Try catch here
         try {
-          axios.get(`${process.env.API_URL}/calendar`).then(response => {
-            const events = response.data.map(event => {
-              return {
-                id: event._id,
-                title: event.title || event.customer,
-                start: new Date(event.start),
-                end: new Date(event.end),
-                allDay: false
-              };
-            });
-            console.log(response);
-            store.Calendar.calendar = events;
-            done();
-          });
+          axios
+            .all([
+              axios.get(`${process.env.API_URL}/calendar`),
+              axios.get(`https://date.nager.at/api/v3/publicholidays/2024/US`)
+            ])
+            .then(
+              axios.spread((responseOne, responseTwo) => {
+                let allDates = [];
+                const events = responseOne.data.map(event => {
+                  return {
+                    id: event._id,
+                    title: event.title || event.customer,
+                    start: new Date(event.start),
+                    end: new Date(event.end),
+                    allDay: false
+                  };
+                });
+                const holidays = responseTwo.data.map(holiday => {
+                  return {
+                    title: holiday.name,
+                    start: holiday.date,
+                    allDay: true
+                  };
+                });
+                allDates = events.concat(holidays);
+                store.Calendar.calendar = allDates;
+                done();
+              })
+            );
         } catch (error) {
           console.log(error);
           done();

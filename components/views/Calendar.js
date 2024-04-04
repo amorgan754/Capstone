@@ -31,6 +31,10 @@ export default () => html`
           <label for="end">End Date and Time</label>
           <input id="end" name="end" type="datetime-local" />
         </div>
+        <!-- <div>
+          <label for="allDay">Check if the event is all day</label>
+          <input type="checkbox" id="allDay" name="allDay" />
+        </div> -->
         <input type="submit" name="calendarSubmit" value="schedule" />
       </form>
     </div>

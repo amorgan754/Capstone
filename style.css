@@ -143,11 +143,12 @@ nav {
 #calendar{
   grid-column: 1/span 4;
   grid-row: 1/span 5;
-  max-width: auto;
-  margin: 40px auto;
+  margin: 2em;
+
 }
 
 #events{
   grid-column: 5;
   grid-row: 1/span 5;
+  margin: 2em;
 }
