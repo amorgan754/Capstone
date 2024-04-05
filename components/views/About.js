@@ -1,4 +1,5 @@
 import html from "html-literal";
+import self from "../../assets/img/my-pic.jpg";
 
 export default () => html`
   <section id="about">
@@ -20,18 +21,21 @@ export default () => html`
       <p>
         A little about myself:
       </p>
-      <p>
-        I currently live in Washington with plans to move back to the midwest. I
-        have been programming since 2021 where I started in python and slowly
-        learned more about different languages where I then started my degree in
-        Software Development and Security with a minor in cybersecurity. I enjoy
-        learning more about different coding projects and applications as well
-        as validating the security of different applications. Coding gives a
-        bunch of different problems with even more ways to solve them. The
-        challenge that surrounds it excites me and I love learning something new
-        each time I work on any project! Fun fact about me: I'm obsessed with
-        pigs!
-      </p>
+      <span id="aboutInfo">
+        <img id="headshot" src="${self}" alt="headshot" />
+        <p id="about">
+          I currently live in Washington with plans to move back to the midwest.
+          I have been programming since 2021 where I started in python and
+          slowly learned more about different languages where I then started my
+          degree in Software Development and Security with a minor in
+          cybersecurity. I enjoy learning more about different coding projects
+          and applications as well as validating the security of different
+          applications. Coding gives a bunch of different problems with even
+          more ways to solve them. The challenge that surrounds it excites me
+          and I love learning something new each time I work on any project! Fun
+          fact about me: I'm obsessed with pigs!
+        </p>
+      </span>
     </div>
 
     <div class="currentProjects">
@@ -39,12 +43,12 @@ export default () => html`
       <ul>
         <li class="project">
           <a href="https://github.com/amorgan754/Capstone"
-            >Current Savvy Coders Capstone</a
+            >Click here to see my current Savvy Coders capstone</a
           >
         </li>
         <li class="project">
           <a href="https://github.com/amorgan754/Job-Application-Tracker"
-            >CLI menu driven job application tracker</a
+            >Click here to see my CLI menu driven job application tracker</a
           >
         </li>
         <li class="project">Final Bachelors Degree Capstone</li>

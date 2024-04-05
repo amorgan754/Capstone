@@ -125,10 +125,7 @@ function afterRender(state) {
             info.event.title +
             "\n" +
             "Start Time: " +
-            info.event.start +
-            "\n" +
-            "End Time: " +
-            info.event.end
+            info.event.start
         );
       }
     });
@@ -185,6 +182,7 @@ router.hooks({
                   };
                 });
                 allDates = events.concat(holidays);
+                console.log(allDates);
                 store.Calendar.calendar = allDates;
                 done();
               })
