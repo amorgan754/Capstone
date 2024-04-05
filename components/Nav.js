@@ -2,7 +2,7 @@ import html from "html-literal";
 // create and import images based on weather (need to see what all descriptions there are)
 
 export default state => html`
-  <nav>
+  <nav id="navBar">
     <span id="weather">
       <!-- insert image here to be beside the description -->
       <p>

@@ -41,7 +41,7 @@ export default () => html`
       </form>
     </div>
     <div class="socialMedia">
-      <p>Find me on social media</p>
+      <p>Click below to find me on social media</p>
       <a class="contact" href="https://github.com/amorgan754/">Github</a>
       <a
         class="contact"

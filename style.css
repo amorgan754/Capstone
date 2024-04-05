@@ -33,15 +33,40 @@ li{
 h1{
   color: #FFCAD4;
 }
-
-nav {
-  display: flex;
+#aboutInfo{
+  display: grid;
+  grid-template-columns: 10% 30% 20% 20% 20%;
+  grid-template-rows: 20% 20% 20% 20% 20%;
+}
+#headshot{
+  height: 7em;
+  width: 4em;
+  grid-column: 1/span 1;
+  grid-row: 1/span 1;
 }
 
+#about{
+  grid-column: 2/span 4;
+  grid-row: 1/span 5;
+}
+
+#navBar{
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+
+
 #weather{
-  float: left;
-  justify-content: flex-start;
-  font-size: large;
+  grid-column: 1/span 3;
+  grid-row: 1/span 5;
+}
+
+#nav{
+  grid-column: 4/span 1;
+  grid-row: 1/span 5;
+  margin-left: 5em;
 }
 
 #nav > ul{
@@ -119,15 +144,19 @@ nav {
 }
 
 #message{
-  margin: 1em;
+  margin: 0.5em;
 }
 
 #mail{
-  margin: 1em;
+  margin: 0.5em;
 }
 
 #subject{
-  margin: 1em;
+  margin: 0.5em;
+}
+
+.socialMedia{
+  margin: 0.5em
 }
 
 .contact:hover{
