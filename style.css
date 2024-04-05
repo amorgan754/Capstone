@@ -35,7 +35,7 @@ h1{
 }
 #aboutInfo{
   display: grid;
-  grid-template-columns: 10% 30% 20% 20% 20%;
+  grid-template-columns: 5% 35% 20% 20% 20%;
   grid-template-rows: 20% 20% 20% 20% 20%;
 }
 #headshot{
