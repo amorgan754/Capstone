@@ -12,8 +12,6 @@ import interactionPlugin from "@fullcalendar/interaction";
 // router
 const router = new Navigo("/");
 
-let calendar;
-
 // render
 function render(state = store.Home) {
   document.querySelector("#root").innerHTML = `
@@ -25,32 +23,6 @@ function render(state = store.Home) {
   afterRender(state);
 }
 
-function handleEventDragResize(info) {
-  const event = info.event;
-
-  if (confirm("Are you sure about this change?")) {
-    const requestData = {
-      title: event.title,
-      start: event.start.toJSON(),
-      end: event.end.toJSON()
-    };
-
-    axios
-      .put(`${process.env.API_URL}/calendar/${event.id}`, requestData)
-      .then(response => {
-        console.log(
-          `Event '${response.data.title}' (${response.data._id}) has been updated.`
-        );
-      })
-      .catch(error => {
-        info.revert();
-        console.log(error);
-      });
-  } else {
-    info.revert();
-  }
-}
-
 function afterRender(state) {
   if (state.view === "Finances") {
     document.querySelector("form").addEventListener("submit", event => {
@@ -58,7 +30,6 @@ function afterRender(state) {
 
       const inputList = event.target.elements;
       console.log("Input Element List", inputList);
-
       const requestData = {
         financeName: inputList.financeName.value,
         cost: inputList.cost.value,
@@ -104,12 +75,12 @@ function afterRender(state) {
     // Need to add calendar here
     let calendarEl = document.getElementById("calendar");
     let calendar = new Calendar(calendarEl, {
-      plugins: [dayGridPlugin, timeGridPlugin, interactionPlugin],
+      plugins: [dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin],
       initialView: "dayGridMonth",
       headerToolbar: {
         left: "prev,next today",
         center: "title",
-        right: "dayGridMonth,timeGridWeek,timeGridDay"
+        right: "dayGridMonth,timeGridWeek,timeGridDay,list"
       },
       selectable: true,
       editable: true,
