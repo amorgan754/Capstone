@@ -12,6 +12,8 @@ import interactionPlugin from "@fullcalendar/interaction";
 // router
 const router = new Navigo("/");
 
+let userInfo = null;
+
 // render
 function render(state = store.Home) {
   document.querySelector("#root").innerHTML = `
@@ -24,6 +26,14 @@ function render(state = store.Home) {
 }
 
 function afterRender(state) {
+  if (state.view === "Login") {
+    document
+      .getElementById("registerButton")
+      .addEventListener("click", event => {
+        event.preventDefault();
+        router.navigate("/Register");
+      });
+  }
   if (state.view === "Finances") {
     document.querySelector("form").addEventListener("submit", event => {
       event.preventDefault();

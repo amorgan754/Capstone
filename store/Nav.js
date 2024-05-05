@@ -5,6 +5,7 @@ export default {
     { title: "Calendar", text: "Calendar" },
     { title: "Contact", text: "Contact" },
     { title: "Finances", text: "Finances" }
+    // { title: "Login", text: "Login" }
   ],
   weather: {}
 };
