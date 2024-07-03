@@ -12,7 +12,23 @@ import interactionPlugin from "@fullcalendar/interaction";
 // router
 const router = new Navigo("/");
 
-let userInfo = null;
+let username = null;
+let password = null;
+
+function userLogin() {
+  username = document.querySelector("#username");
+  password = document.querySelector("#password");
+  let userLoginInfo = axios
+    .get(`${process.env.API_URL}/userInfo`)
+    .then(response => {
+      store.Login.login.push(response.data);
+    });
+  if (username && password in userLoginInfo) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 // render
 function render(state = store.Home) {
@@ -34,7 +50,7 @@ function afterRender(state) {
         router.navigate("/Register");
       });
   }
-  if (state.view === "Finances") {
+  if (state.view === "Finances" && userLogin() == true) {
     document.querySelector("form").addEventListener("submit", event => {
       event.preventDefault();
 
